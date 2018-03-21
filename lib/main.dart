@@ -1,38 +1,22 @@
 import 'package:flutter/material.dart';
+import 'login_page.dart';
+import 'home_page.dart';
 
-void main() => runApp(new TabBarDemo());
+void main() => runApp(new Demo());
 
-class TabBarDemo extends StatelessWidget {
+class Demo extends StatelessWidget {
+  final routes = <String, WidgetBuilder>{
+    LoginPage.tag: (context) => LoginPage(),
+    HomePage.tag: (context) => HomePage(),
+  };
+
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new DefaultTabController(
-        length: 3,
-        child: new Scaffold(
-            appBar: new AppBar(
-              title: new Text('Tabs Demo'),
-              bottom: new TabBar(
-                tabs: <Widget>[
-                  new Tab(
-                    icon: new Icon(Icons.directions_car),
-                  ),
-                  new Tab(
-                    icon: new Icon(Icons.directions_transit),
-                  ),
-                  new Tab(
-                    icon: new Icon(Icons.directions_bike),
-                  ),
-                ],
-              ),
-            ),
-            body: new TabBarView(
-              children: <Widget>[
-                new Icon(Icons.directions_car),
-                new Icon(Icons.directions_transit),
-                new Icon(Icons.directions_bike)
-              ],
-            )),
-      ),
+    return MaterialApp(
+      title: 'Kodeversitas',
+      theme: ThemeData(primarySwatch: Colors.lightBlue),
+      home: LoginPage(),
+      routes: routes,
     );
   }
 }
