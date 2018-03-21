@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'drawer_page.dart';
+import 'bottom_native.dart';
 
 void main() => runApp(new Demo());
 
@@ -14,6 +15,7 @@ class Demo extends StatelessWidget {
           title: Text('Drawer'),
         ),
         drawer: MyDrawer(),
+        bottomNavigationBar: MyBottom(),
       ),
     );
   }
