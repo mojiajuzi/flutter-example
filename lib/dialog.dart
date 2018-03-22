@@ -9,6 +9,7 @@ class MyDialog extends StatefulWidget {
 enum Department { treasury, state }
 
 class _MyDialogState extends State<MyDialog> {
+  //simple dialog
   Future<Null> _askedToLead() async {
     var choice = await showDialog<Department>(
         context: context,
@@ -32,6 +33,46 @@ class _MyDialogState extends State<MyDialog> {
     print(choice);
   }
 
+  //alert dialog
+  Future<Null> _neverSatisfied() async {
+    return showDialog<Null>(
+        context: context,
+        barrierDismissible: false,
+        child: AlertDialog(
+          title: Text('Alert'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('you will never be satisfied'),
+                Text('You\’re like me. I’m never satisfied.')
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Regret'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        ));
+  }
+
+  Future<Null> _showDialogDemo() {
+    return showDialog(
+        context: context,
+        barrierDismissible: false,
+        child: Center(
+          child: RaisedButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('show Button'),
+          ),
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -41,7 +82,7 @@ class _MyDialogState extends State<MyDialog> {
       body: Container(
         child: Center(
           child: RaisedButton(
-            onPressed: _askedToLead,
+            onPressed: _showDialogDemo,
             child: Text('Show Simple Dialog'),
           ),
         ),
