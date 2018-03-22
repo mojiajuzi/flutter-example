@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'side_page.dart';
+import 'dialog.dart';
 
 void main() => runApp(new Demo());
 
@@ -9,6 +9,6 @@ class Demo extends StatelessWidget {
     return MaterialApp(
         title: 'Kodeversitas',
         theme: ThemeData(primarySwatch: Colors.lightBlue),
-        home: MySlider());
+        home: MyDialog());
   }
 }
