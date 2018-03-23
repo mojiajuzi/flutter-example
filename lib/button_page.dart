@@ -16,7 +16,9 @@ class _MyButtonState extends State<MyButton> {
         child: Row(
           children: <Widget>[
             RaisedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/login');
+              },
               child: Text('Hello'),
               textColor: Colors.orange,
             ),
